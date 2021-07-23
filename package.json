@@ -13,6 +13,7 @@
   "author": "Narendra Maurya",
   "license": "MIT",
   "dependencies": {
+    "@vue/composition-api": "^1.0.4",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "bootstrap": "^5.0.1",

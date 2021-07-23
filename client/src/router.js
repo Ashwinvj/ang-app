@@ -37,6 +37,14 @@ const router = new Router({
         requiresAuth: true
       }
     },
+    {
+      path: '/inspection',
+      name: 'inspection',
+      component: () => import('./views/Inspection.vue'),
+      meta: {
+        requiresAuth: true
+      }
+    },
   ]
 });
 export default router;
