@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
@@ -12,7 +13,6 @@ const User = require('../../model/User');
  */
 router.post('/register', (req, res) => {
     let {
-        name,
         username,
         email,
         password,
@@ -45,7 +45,7 @@ router.post('/register', (req, res) => {
     });
     // The data is valid and new we can register the user
     let newUser = new User({
-        name,
+        
         username,
         password,
         email
@@ -71,7 +71,7 @@ router.post('/register', (req, res) => {
  */
 router.post('/login', (req, res) => {
     User.findOne({
-        username: req.body.username
+        email: req.body.email
     }).then(user => {
         if (!user) {
             return res.status(404).json({
@@ -85,8 +85,8 @@ router.post('/login', (req, res) => {
                 // User's password is correct and we need to send the JSON Token for that user
                 const payload = {
                     _id: user._id,
-                    username: user.username,
-                    name: user.name,
+                    
+                    
                     email: user.email
                 }
                 jwt.sign(payload, key, {
@@ -113,7 +113,7 @@ router.post('/login', (req, res) => {
  * POST api/users/profile
  * Return the User's Data
  */
-router.get('/profile', passport.authenticate('jwt', {
+router.get('/user', passport.authenticate('jwt', {
     session: false
 }), (req, res) => {
     return res.json({

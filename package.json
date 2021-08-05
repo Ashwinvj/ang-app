@@ -1,13 +1,13 @@
 {
-  "name": "mevn_stack",
+  "name": "mean_stack",
   "version": "1.0.0",
   "description": "Simple web application to handle authentication with vue.js",
   "main": "app.js",
   "scripts": {
-    "client-install": "npm install --prefix client",
+    "client-install": "ng serve",
     "start": "node app.js",
     "server": "nodemon app.js",
-    "client": "npm run serve --prefix client",
+    "client": "ng serve",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Narendra Maurya",
